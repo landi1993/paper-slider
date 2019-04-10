@@ -653,9 +653,11 @@ Custom property | Description | Default
             _barclick: function (event) {
                 this._w = this.$.sliderBar.offsetWidth;
                 var rect = this.$.sliderBar.getBoundingClientRect();
-                var ratio = (event.detail.x - rect.left) / this._w * 100;
-                if (this._isRTL) {
-                    ratio = 100 - ratio;
+
+                if (this.vertical) {
+                    var ratio = (rect.bottom - event.detail.y) / this._w * 100;
+                } else {
+                    var ratio = (event.detail.x - rect.left) / this._w * 100;
                 }
                 var prevRatio = this.ratio;
 

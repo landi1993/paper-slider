@@ -315,7 +315,6 @@ Custom property | Description | Default
 
             /* paper-input */
             .slider-input {
-                width: 50px;
                 overflow: hidden;
                 --paper-input-container-input: {
                     text-align: center;
@@ -346,7 +345,7 @@ Custom property | Description | Default
             }
         </style>
 
-        <div class$="[[_getClassNames(disabled, pin, snaps, immediateValue, min, expand, dragging, transiting, editable, vertical)]]"
+        <div class$="[[_getClassNames(disabled, pin, snaps, immediateValue, min, expand, dragging, transiting, editable, vertical, suffix, prefix)]]"
              id="sliderContainer">
             <div class="bar-container">
                 <paper-progress
@@ -396,6 +395,8 @@ Custom property | Description | Default
                     step="[[step]]"
                     type="number"
                     value="[[immediateValue]]">
+                <div slot="suffix">[[suffix]]</div>
+                <div slot="prefix">[[prefix]]</div>
             </paper-input>
         </template>
     </template>
@@ -486,6 +487,16 @@ Custom property | Description | Default
                 vertical: {
                     type: Boolean,
                     value: false
+                },
+
+                suffix: {
+                    type: String,
+                    value: ""
+                },
+
+                prefix: {
+                    type: String,
+                    value: ""
                 }
             },
 
